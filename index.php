@@ -19,7 +19,6 @@
             <?php include("./includes/sidbar.php") ?>
             
             
-            
            
         </div>
         <!-- /.row -->
