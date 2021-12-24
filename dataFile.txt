@@ -2,7 +2,6 @@ CREATE TABLE IF NOT EXISTS `comments` (
 `id` int(11) NOT NULL,
 `posted_by` varchar(60) NOT NULL,
   `post_body` text NOT NULL,
-  `posted_to` varchar(60) NOT NULL,
   `date_added` datetime NOT NULL,
   `post_id` int(11) NOT NULL
 );
@@ -24,7 +23,6 @@ CREATE TABLE IF NOT EXISTS `users` (
   `name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `signup_date` date NOT NULL,
   `profile_pic` varchar(255) NOT NULL,
   `num_posts` int(11) NOT NULL,
   `paid` varchar(3) NOT NULL

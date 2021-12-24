@@ -26,10 +26,12 @@
          </div>
         <div class="row">
             <div class="col-md-6">
+              
                 <h2 class="display-5"><?php echo $getSinglePostValue['title'] ?></h2>
                 <p class="text-primary ml-1 ">Posted on <?php echo $getSinglePostValue['date_creation']?></p>
                 <p class="lead"><?php echo $getSinglePostValue['body'] ?></p>
             </div>
+            
         </div>
         <hr>
         <div class="row">

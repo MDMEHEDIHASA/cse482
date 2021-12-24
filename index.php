@@ -10,30 +10,17 @@
         <div class="row">
 
             <!-- Blog Entries Column -->
-            <div class="col-md-8">
-
-            
-                
-                
+            <div class="col-md-8">   
                 <?php
                 $post = new Post($con,$userLoggedIn);
                 $post->loadPosts();
                 ?>
-                <!-- Pager -->
-                <!-- <ul class="pager">
-                    <li class="previous">
-                        <a href="#">&larr; Older</a>
-                    </li>
-                    <li class="next">
-                        <a href="#">Newer &rarr;</a>
-                    </li>
-                </ul> -->
-
             </div>
-                
-
-            </div>
-
+            <?php include("./includes/sidbar.php") ?>
+            
+            
+            
+           
         </div>
         <!-- /.row -->
 
