@@ -1,0 +1,19 @@
+.post_img_equal{
+    width: 700px;
+    height:400px;
+}
+
+
+#search_text_input{
+    width: 361px;
+}
+
+@media only  screen and (max-width:575px) {
+    .post_img_equal{
+        width: 400px;
+        height:200px;
+    }
+
+}
+
+

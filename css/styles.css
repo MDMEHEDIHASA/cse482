@@ -1,0 +1,53 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+a{
+    text-decoration: none !important;
+}
+
+
+
+ul,li{
+    list-style: none;
+}
+
+
+.round_image{
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+}
+
+
+
+
+
+@media screen and (max-width:575px) {
+
+    
+    .small_img{
+        width: 356px !important;
+    }
+    
+}
+
+
+@media screen and (max-width:575px) {
+    
+    .img-responsivew{
+        width: 310px  !important;
+    }
+    
+
+    .small_img2{
+        width: 326px !important;
+    }
+}
+
+
+
+

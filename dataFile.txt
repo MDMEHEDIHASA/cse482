@@ -1,0 +1,39 @@
+CREATE TABLE IF NOT EXISTS `comments` (
+`id` int(11) NOT NULL,
+`posted_by` varchar(60) NOT NULL,
+  `post_body` text NOT NULL,
+  `posted_to` varchar(60) NOT NULL,
+  `date_added` datetime NOT NULL,
+  `post_id` int(11) NOT NULL
+);
+
+
+CREATE TABLE IF NOT EXISTS `posts` (
+`id` int(11) NOT NULL,
+`title` varchar(200),
+  `body` text NOT NULL,
+  `img_file` varchar(500) NOT NULL,
+  `date_creation` datetime NOT NULL,
+  `like_post` int(11) NOT NULL,
+   `added_by` varchar(60) NOT NULL,
+  `deleted` varchar(3) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS `users` (
+`id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `signup_date` date NOT NULL,
+  `profile_pic` varchar(255) NOT NULL,
+  `num_posts` int(11) NOT NULL,
+  `paid` varchar(3) NOT NULL
+);
+
+
+CREATE TABLE IF NOT EXISTS `likes` (
+`id` int(11) NOT NULL,
+  `username` varchar(60) NOT NULL,
+  `post_id` int(11) NOT NULL,
+   `count_like` int(11) NOT NULL
+);
