@@ -17,7 +17,7 @@
                 ?>
             </div>
             <?php include("./includes/sidbar.php") ?>
-            
+            <?php include("./includes/weather.php") ?>
             
            
         </div>

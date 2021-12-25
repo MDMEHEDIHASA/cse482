@@ -7,6 +7,7 @@
     justify-content: center;
     align-items: center;
     height: 55vh;
+    width: 57vh;
   }
   .box{
     width:400px;
@@ -33,15 +34,91 @@
     color:#fff;
     padding: 5px 10px;
   }
+
+  .adjust{
+    margin-top:-1.2rem;
+  }
 </style>    
 
 
 
 
+
+
+
+<style type="text/css">
+
+
+*
+{
+  margin: 0;
+  padding: 0;
+  outline: none;
+}
+
+body
+{
+}
+
+div.widget
+{
+  background-color: #fcfdfd;
+  border-radius: 9px;
+  padding: 25px;
+  padding-right: 30px;
+  box-shadow: 0px 31px 35px -26px #080c21;
+  text-align: center;
+  width:400px;
+}
+
+div.left-panel
+{
+}
+
+div.date
+{
+  font-size: 14px;
+  font-weight: bold;
+  color: rgba(0,0,0,0.5);
+}
+
+div.city
+{
+  font-size: 21px;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding-top: 5px;
+  color: rgba(0,0,0,0.7);
+}
+
+div.temp
+{
+  font-size: 81px;
+  color: rgba(0,0,0,0.9);
+  font-weight: 100;
+}
+
+div.panel
+{
+  display: inline-block;
+}
+
+div.right-panel
+{
+  /* position: absolute;
+  float: right;
+  top: 0;
+  margin-top: 35px;
+  padding-left: 10px; */
+}
+</style>  
+
+
+
      <div class="col-md-4" style="margin-top:15rem">
-            <div class="card bg-dark px-4 my-2">
+            <div class="card box bg-dark px-4 my-2">
                    <div class="card-body ">
-                   <h4 class="text-white">Most Posted by  Users</h4>
+                   <h4 class="text-white adjust">Most Posted by  Users</h4>
                     <div class="row">
                         <div class="col-lg-12">
                             <ul class="list-unstyled">
@@ -93,7 +170,39 @@
                         </div>
                     </div>
                 </div>
-        </div>
+
+
+
+
+              <div class="widget">
+              <?php
+                $city_name='Dhaka,BD';
+                $api_key='6ffb6bf3b8f6dac4808253608fe47bf7';
+                $api_url='http://api.openweathermap.org/data/2.5/weather?q='.$city_name.'&appid='.$api_key;
+                $weather_data = json_decode(file_get_contents($api_url),true);
+                $tempature = $weather_data['main']['temp'];
+                $tempature_in_celcius= $tempature-273.15;
+                $exactTempature= round($tempature_in_celcius)
+                
+              ?>
+                <div class="left-panel panel">
+                  <div class="date">
+                   Today's Weather
+                  </div>
+                  <div class="city">
+                    Dhaka,BD
+                  </div>
+                  <div class="temp">
+                   <img src="https://s5.postimg.cc/yzcm7htyb/image.png" alt="" width="60">
+                   <?php echo $exactTempature?>&deg;
+                   </div>
+                </div>
+                <div class="right-panel panel">
+                <img src="https://s5.postimg.cc/lifnombwz/mumbai1.png" alt="" width="160">
+                </div>
+              </div>
+            
+      </div>
 
             
 

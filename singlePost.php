@@ -21,11 +21,17 @@
     <main>
         <div class="container py-md-5">
            
-        <div class="fluid my-4">
+        <div class="my-4">
             <img src="<?php echo $getSinglePostValue['img_file'] ?>"   class="post_img_equal" alt=""> 
+            <div class="float-right d-none d-lg-block">
+            <?php include("includes/sidbar.php")?>
+            </div>
+            <div class="float-none"></div>
          </div>
+         
+         
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-12">
               
                 <h2 class="display-5"><?php echo $getSinglePostValue['title'] ?></h2>
                 <p class="text-primary ml-1 ">Posted on <?php echo $getSinglePostValue['date_creation']?></p>
@@ -72,12 +78,6 @@
                       <label for="post-body" class="h5 lead text-info  mb-1 d-block">
                         Write your comment here
                       </label>
-                      <!-- <div class="form-group">
-                        <label for="username" class="text-muted mb-1">
-                          <small>userName</small>
-                        </label>
-                        <input id="username" name="username" class="form-control" type="text" placeholder="UsernName" autocomplete="off" />
-                      </div> -->
                       <textarea name="textbody" rows="4" cols="1"  class="form-control my-2" type="text" placeholder="Type your comment"></textarea>
                     </div>
                     <?php if($userQuery['paid'] ===  'no'){?>
