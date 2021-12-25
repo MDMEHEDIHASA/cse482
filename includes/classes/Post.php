@@ -73,36 +73,6 @@ class Post {
 				$date_time	= $row['date_creation'];
 				$added_by = $row['added_by'];
 
-				//Prepare user_to string so it can be included even if not posted to a user
-				// if($row['user_to'] == "none") {
-				// 	$user_to = "";
-				// }
-				// else {
-				// 	$user_to_obj = new User($con, $row['user_to']);
-				// 	$user_to_name = $user_to_obj->getFirstAndLastName();
-				// 	$user_to = "to <a href='" . $row['user_to'] ."'>" . $user_to_name . "</a>";
-				// }
-
-				//Check if user who posted, has their account closed
-				// $added_by_obj = new User($this->con, $added_by);
-				// if($added_by_obj->isClosed()) {
-				// 	continue;
-				// }
-
-				
-
-					// if($num_iterations++ < $start)
-					// 	continue; 
-
-
-					//Once 10 posts have been loaded, break
-					// if($count > $limit) {
-					// 	break;
-					// }
-					// else {
-					// 	$count++;
-					// }
-
 					$user_details_query = mysqli_query($this->con, "SELECT name,profile_pic FROM users WHERE name='$added_by'");
 					$user_row = mysqli_fetch_array($user_details_query);
 					$name = $user_row['name'];

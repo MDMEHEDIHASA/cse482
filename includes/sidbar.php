@@ -6,8 +6,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 55vh;
-    width: 57vh;
+    height: 41vh;
+    width: 54vh;
   }
   .box{
     width:400px;
@@ -115,8 +115,40 @@ div.right-panel
 
 
 
-     <div class="col-md-4" style="margin-top:15rem">
-            <div class="card box bg-dark px-4 my-2">
+     <div class="col-md-4" style="margin-top:5rem">
+
+
+
+      <div class="widget">
+              <?php
+                $city_name='Dhaka,BD';
+                $api_key='6ffb6bf3b8f6dac4808253608fe47bf7';
+                $api_url='http://api.openweathermap.org/data/2.5/weather?q='.$city_name.'&appid='.$api_key;
+                $weather_data = json_decode(file_get_contents($api_url),true);
+                $tempature = $weather_data['main']['temp'];
+                $tempature_in_celcius= $tempature-273.15;
+                $exactTempature= round($tempature_in_celcius)
+                
+              ?>
+                <div class="left-panel panel">
+                  <div class="date">
+                   Today's Weather
+                  </div>
+                  <div class="city">
+                    Dhaka,BD
+                  </div>
+                  <div class="temp">
+                   <img src="https://s5.postimg.cc/yzcm7htyb/image.png" alt="" width="60">
+                   <?php echo $exactTempature?>&deg;
+                   </div>
+                </div>
+                <div class="right-panel panel">
+                <img src="https://s5.postimg.cc/lifnombwz/mumbai1.png" alt="" width="160">
+                </div>
+        </div>
+
+
+            <div class="card box bg-dark px-4 my-5">
                    <div class="card-body ">
                    <h4 class="text-white adjust">Most Posted by  Users</h4>
                     <div class="row">
@@ -174,33 +206,7 @@ div.right-panel
 
 
 
-              <div class="widget">
-              <?php
-                $city_name='Dhaka,BD';
-                $api_key='6ffb6bf3b8f6dac4808253608fe47bf7';
-                $api_url='http://api.openweathermap.org/data/2.5/weather?q='.$city_name.'&appid='.$api_key;
-                $weather_data = json_decode(file_get_contents($api_url),true);
-                $tempature = $weather_data['main']['temp'];
-                $tempature_in_celcius= $tempature-273.15;
-                $exactTempature= round($tempature_in_celcius)
-                
-              ?>
-                <div class="left-panel panel">
-                  <div class="date">
-                   Today's Weather
-                  </div>
-                  <div class="city">
-                    Dhaka,BD
-                  </div>
-                  <div class="temp">
-                   <img src="https://s5.postimg.cc/yzcm7htyb/image.png" alt="" width="60">
-                   <?php echo $exactTempature?>&deg;
-                   </div>
-                </div>
-                <div class="right-panel panel">
-                <img src="https://s5.postimg.cc/lifnombwz/mumbai1.png" alt="" width="160">
-                </div>
-              </div>
+              
             
       </div>
 

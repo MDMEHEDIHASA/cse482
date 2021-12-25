@@ -15,8 +15,17 @@
     $date_time_now = date('Y-m-d H:i:s');
     $insert_post = mysqli_query($con,"INSERT INTO comments VALUES('','$usernameforComment','$post_body','$date_time_now','$postId')");
   }
-   
+   //delete post 
+   if(isset($_POST['deleteSubmit'])){
+    $deletePost = mysqli_query($con, "DELETE  FROM posts WHERE id=$postId");
+    header("Location:profilePage.php");
+    exit();
+  }
+
   ?>
+
+
+
 
     <main>
         <div class="container py-md-5">
@@ -34,6 +43,21 @@
             <div class="col-md-12">
               
                 <h2 class="display-5"><?php echo $getSinglePostValue['title'] ?></h2>
+                <form class='d-inline' action='editPost.php?id=<?php echo $postId;?>' method='post'>
+                <button name="submit" class="btn btn-primary <?php if($userQuery['name'] != $getSinglePostValue['added_by']) echo 'd-none';   ?> ">
+                  <?php if($userQuery['name'] == $getSinglePostValue['added_by']){ echo 'Edit Post';}   ?>
+                </button>
+                </form>
+                
+                <form class='d-inline' action='singlePost.php?id=<?php echo $postId;?>' method='post'>
+                <button name="deleteSubmit" 
+                class="btn btn-primary <?php if($userQuery['name'] != $getSinglePostValue['added_by']) echo 'd-none';?>"
+                onclick='return checkDelete()'
+                >
+                  <?php if($userQuery['name'] == $getSinglePostValue['added_by']){ echo 'Delete Post';}   ?>
+                </button>
+                </form>
+                
                 <p class="text-primary ml-1 ">Posted on <?php echo $getSinglePostValue['date_creation']?></p>
                 <p class="lead"><?php echo $getSinglePostValue['body'] ?></p>
             </div>
@@ -101,3 +125,9 @@
         </div>
     </main>
     <?php include("includes/footer.php");?>
+
+    <script type='text/javascript'>
+      function checkDelete(){
+        return confirm('Are you sure you want to delete this post?')
+      }
+    </script>

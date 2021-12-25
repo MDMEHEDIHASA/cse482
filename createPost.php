@@ -42,6 +42,8 @@ if(isset($_POST['submit'])){
 	if($uploadOk) {
 		$post = new Post($con, $userLoggedIn);
 		$post->submitPost($_POST['title'],$_POST['body'], $imageName,'none');
+		header('Location:index.php');
+		exit();
 	}
 	else {
 		echo "<p style='text-align:center;' class='mx-auto w-50 alert alert-danger'>

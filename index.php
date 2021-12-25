@@ -17,7 +17,7 @@
                 ?>
             </div>
             <?php include("./includes/sidbar.php") ?>
-            <?php include("./includes/weather.php") ?>
+            
             
            
         </div>
@@ -25,16 +25,9 @@
 
         <hr>
 
-        <!-- Footer -->
-        <!-- <footer class="border-top text-center small text-muted py-3">
-            <p class="m-0">Copyright &copy; 2021 <a href="/" class="text-muted">Blog</a>. All rights reserved.</p>
-        </footer> -->
+
 
     </div>
     
 
-<!-- 
-</body>
-
-</html> -->
 <?php include('./includes/footer.php');?>

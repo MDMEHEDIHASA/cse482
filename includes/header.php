@@ -66,19 +66,3 @@ if(isset($_SESSION['name'])){
     <div id="search_results" style="margin:0 600px; position:relative;left:114px">
                 
     </div>
-
-    <!-- <script type="text/javascript">
-      // Live Search
-     $("#search_text_input").on("keyup",function(){
-       var search_term = $(this).val();
-
-       $.ajax({
-         url: "includes/handlers/ajaxLiveSearch.php",
-         type: "POST",
-         data : {search:search_term },
-         success: function(data) {
-           $("#search_results").html(data);
-         }
-       });
-     });
-    </script> -->
