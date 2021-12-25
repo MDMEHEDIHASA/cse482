@@ -16,10 +16,17 @@ if(isset($_POST['submit'])){
 		$row = mysqli_fetch_array($check_database_query);
 		$name = $row['name'];
 
-		// $user_closed_query = mysqli_query($con, "SELECT * FROM users WHERE email='$email' AND user_closed='yes'");
-		// if(mysqli_num_rows($user_closed_query) == 1) {
-		// 	$reopen_account = mysqli_query($con, "UPDATE users SET user_closed='no' WHERE email='$email'");
-		// }
+		if(!empty($_POST['remember'])){
+			setcookie("email",$_POST['email'],time()+(3600*24*7));
+			setcookie("password",$_POST['password'],time()+(3600*24*7));
+		}else{
+			if(isset($_COOKIE["email"])){
+				setcookie("email","");
+			}
+			if(isset($_COOKIE["password"])){
+				setcookie("password","");
+			}
+		}
          
 		$_SESSION['name'] = $name;
 		header("Location:index.php");
@@ -28,6 +35,7 @@ if(isset($_POST['submit'])){
 	else {
 		array_push($error_array, "Email or password was incorrect<br>");
 	}
+	
 
 }
 

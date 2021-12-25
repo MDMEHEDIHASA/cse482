@@ -32,13 +32,21 @@ require('includes/form_handler/login_handler.php');
                         <label for="email-register" class="text-muted mb-1">
                           <small>Email</small>
                         </label>
-                        <input id="email-register" name="email" class="form-control" type="text" placeholder="you@example.com" autocomplete="off" />
+                        <input id="email-register" name="email" class="form-control" type="text" placeholder="you@example.com" autocomplete="off"
+                        value="<?php if(isset($_COOKIE["email"])){ echo $_COOKIE["email"];} ?>" 
+                        />
                       </div>
                       <div class="form-group">
                         <label for="password-register" class="text-muted mb-1">
                           <small>Password</small>
                         </label>
-                        <input id="password-register" name="password" class="form-control" type="password" placeholder="Type your password" />
+                        <input id="password-register" name="password" class="form-control" type="password" placeholder="Type your password" 
+                        value="<?php if(isset($_COOKIE["password"])){ echo $_COOKIE["password"];} ?>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <input type="checkbox" name="remember" <?php if(isset($_COOKIE["email"])){ echo 'checked';} ?>/>
+                        <label for="remember-me">Remember Me</label>
                       </div>
                       <button name="submit" type="submit" class="py-3 my-4 btn btn-lg btn-success btn-block">
                         Sign In
