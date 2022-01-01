@@ -21,7 +21,6 @@
     header("Location:profilePage.php");
     exit();
   }
-
   ?>
 
 
@@ -32,7 +31,7 @@
            
         <div class="my-4">
             <img src="<?php echo $getSinglePostValue['img_file'] ?>"   class="post_img_equal" alt=""> 
-            <div class="float-right d-none d-lg-block">
+            <div class="float-right d-none  d-lg-block">
             <?php include("includes/sidbar.php")?>
             </div>
             <div class="float-none"></div>

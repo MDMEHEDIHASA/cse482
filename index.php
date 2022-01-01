@@ -16,7 +16,9 @@
                 $post->loadPosts();
                 ?>
             </div>
+             
             <?php include("./includes/sidbar.php") ?>
+
             
             
            

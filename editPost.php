@@ -15,7 +15,7 @@ if(isset($_POST['submit'])){
     }
     
     if(!empty($title) && !empty($body)){
-        if(($title != $editPostValue['title']) && ($body != $editPostValue['body'])){
+        if(($title != $editPostValue['title']) || ($body != $editPostValue['body'])){
             $update_query = mysqli_query($con, "UPDATE posts SET title='$title',body='$body' WHERE id='$postId'");
             header("Location:singlePost.php?id=$postId");
 

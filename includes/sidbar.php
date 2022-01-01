@@ -44,8 +44,6 @@
 
 
 
-
-
 <style type="text/css">
 
 
@@ -111,13 +109,15 @@ div.right-panel
   margin-top: 35px;
   padding-left: 10px; */
 }
-</style>  
+</style> 
 
 
+    
 
-     <div class="col-md-4" style="margin-top:5rem">
 
+     <div class="col-md-4 d-none d-lg-block" style="margin-top:5rem">
 
+     
 
       <div class="widget">
               <?php
@@ -139,7 +139,7 @@ div.right-panel
                   </div>
                   <div class="temp">
                    <img src="https://s5.postimg.cc/yzcm7htyb/image.png" alt="" width="60">
-                   <?php echo $exactTempature?>&deg;
+                   <?php echo $exactTempature?>&degC
                    </div>
                 </div>
                 <div class="right-panel panel">
