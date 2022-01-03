@@ -10,8 +10,8 @@ $editPostValueBody = $editPostValue['body'];
 
 if(isset($_POST['submit'])){
     if(!empty($_POST['title']) && !empty($_POST['body'])){
-        $title = $_POST['title'];
-        $body = $_POST['body'];
+        $title = strip_tags($_POST['title']);
+        $body = strip_tags($_POST['body']);
     }
     
     if(!empty($title) && !empty($body)){

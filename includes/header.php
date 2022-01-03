@@ -2,9 +2,7 @@
 require('config/config.php');
 // session_destroy();
 
-function chatFucn(){
-  header('Location:index.php');
-}
+
 
 if(isset($_SESSION['name'])){
     $userLoggedIn = $_SESSION['name'];
@@ -22,12 +20,12 @@ if(isset($_POST['chatSubmit'])){
   if(!empty($_POST['chatInput'])){
     
     $userChatName=$userQuery['name'];
-    $message = $_POST['chatInput'];
+    $message = strip_tags($_POST['chatInput']);
     $message = mysqli_escape_string($con,$message);
     
     $dateTime = date('H:i:s');
     $chatDB = mysqli_query($con, "INSERT INTO chat VALUES('','$message','$userChatName','$dateTime')");
-    chatFucn();
+    
     
   }
 }
@@ -55,26 +53,6 @@ if(isset($_POST['chatSubmit'])){
   }
 </script>
 
-  <!-- <script type='text/javascript'>
-    $('#chatForm').submit(function(e){
-      e.preventDefault();
-      var chatInput = $('#chatField').value;
-      var hiddenName = $('#hiddenName').value;
-      var dataString = 'chatInput='+ chatInput + '&hiddenName='+hiddenName;
-            $.ajax(
-            {
-                url:'chat-visible.php',
-                type:'POST',
-                data:dataString,
-                success:function(data)
-                {
-                    // $("#table-container").html(data);
-                    $("#chatForm").html(data);
-                },
-            });
-        });
-    })
-  </script> -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
     <script defer src="https://use.fontawesome.com/releases/v5.5.0/js/all.js" integrity="sha384-GqVMZRt5Gn7tB9D9q7ONtcp4gtHIUEW/yG7h98J7IpE3kpi+srfFyyB/04OV6pG0" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./css/substyle.css">
@@ -96,7 +74,6 @@ if(isset($_POST['chatSubmit'])){
                       <a class="nav-link text-white" href="./createPost.php">Create Post</a>
                   </li>
               </ul>
-              <!-- <input hidden id="hiddenName" value="<?php echo $userQuery['name']?>"></input> -->
               <div class="search">
              
               <form class="form-inline my-2 my-lg-0"   name="search_form">

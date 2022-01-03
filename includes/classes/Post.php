@@ -25,16 +25,13 @@ class Post {
 			//Get username
 			$added_by = $this->user_obj->getUsername();
 
-			//If user is on own profile, user_to is 'none'
-			// if($user_to == $added_by) {
-			// 	$user_to = "none";
-			// }
+			
 
 			//insert post 
 			$query = mysqli_query($this->con, "INSERT INTO posts (id,title,body,img_file,date_creation,like_post,added_by,deleted) VALUES('','$title', '$body','$img','$date_added','0','$added_by','no')");
 			$returned_id = mysqli_insert_id($this->con);
 
-			//Insert notification 
+			 
 
 			//Update post count for user 
 			$num_posts = $this->user_obj->getNumPosts();
@@ -163,13 +160,7 @@ class Post {
 						</div>";
 				
 
-			} //End while loop
-
-			// if($count > $limit) 
-			// 	$str .= "<input type='hidden' class='nextPage' value='" . ($page + 1) . "'>
-			// 				<input type='hidden' class='noMorePosts' value='false'>";
-			// else 
-			// 	$str .= "<input type='hidden' class='noMorePosts' value='true'><p style='text-align: centre;'> No more posts to show! </p>";
+			}
 		}
 
 		echo $str;

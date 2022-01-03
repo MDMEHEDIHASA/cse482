@@ -159,7 +159,7 @@ div.right-panel
                                 $str = "";
                                  $data_query = mysqli_query($con, "SELECT MAX(num_posts) FROM users");
                                  $result_data_query = mysqli_fetch_array($data_query);
-                                 $maxium_post = mysqli_query($con, "SELECT * FROM users WHERE num_posts BETWEEN $result_data_query[0]-2 AND $result_data_query[0] LIMIT 8");
+                                 $maxium_post = mysqli_query($con, "SELECT * FROM users WHERE num_posts BETWEEN $result_data_query[0]-2 AND $result_data_query[0] LIMIT 4");
                                  while($row = mysqli_fetch_array($maxium_post)) {
                                      $userName = $row['name'];
                                      $str.="

@@ -29,9 +29,9 @@ CREATE TABLE IF NOT EXISTS `users` (
 );
 
 
-CREATE TABLE IF NOT EXISTS `likes` (
+CREATE TABLE IF NOT EXISTS `chat` (
 `id` int(11) NOT NULL,
-  `username` varchar(60) NOT NULL,
-  `post_id` int(11) NOT NULL,
-   `count_like` int(11) NOT NULL
+  `message` text NOT NULL,
+  `submitted_by	` varchar(255) NOT NULL,
+   `time` time NOT NULL
 );

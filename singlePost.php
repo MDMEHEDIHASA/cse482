@@ -10,7 +10,7 @@
   $usernameforComment = $userQuery['name'];
   
   if(!empty($_POST['textbody'])){
-    $post_body = $_POST['textbody'];
+    $post_body = strip_tags($_POST['textbody']);
     $post_body = mysqli_escape_string($con,$post_body);
     $date_time_now = date('Y-m-d H:i:s');
     $insert_post = mysqli_query($con,"INSERT INTO comments VALUES('','$usernameforComment','$post_body','$date_time_now','$postId')");
